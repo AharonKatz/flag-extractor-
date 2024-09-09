@@ -1,0 +1,13 @@
+version: '3.8'  # Use a version that is compatible with your Docker setup
+
+services:
+  flag-extractor:
+    image: ghcr.io/aharonkatz/flag-extractor:latest
+    container_name: flag-extractor
+    ports:
+      - "80:80"  # Map port 80 of the container to port 80 on the host
+    environment:
+      - ENV_VAR_NAME=value  # Add environment variables if needed
+    volumes:
+      - ./data:/app/data  # Mount a local directory to the container (optional)
+    restart: always  # Restart the container if it stops
